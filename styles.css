@@ -12,13 +12,15 @@ body {
 }
 
 .header {
-    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     max-width: 100vw;
-    min-height: 820px;
+    min-height: 90vh;
     background-image: url("./resource/banner.jpg");
     background-repeat: no-repeat;
-    background-position: center center;
     background-size: cover;
+    background-position: center;
 }
 
 .menuToggle a {
@@ -30,6 +32,8 @@ body {
 .menuToggle a:hover {
     color: rgba(255, 255, 255, 1);
 }
+
+/* Setting for full screen  */
 
 @media only screen and (min-width: 811px) {
 
@@ -88,6 +92,8 @@ body {
     }
 }
 
+/* Setting for mobile viewport  */
+
 @media only screen and (max-width: 810px) {
 
     .header {
@@ -125,6 +131,7 @@ body {
         right: 2rem;
         z-index: 1;
         user-select: none;
+        box-sizing: border-box;
     }
 
     .menuToggle a {
@@ -194,7 +201,7 @@ body {
         position: absolute;
         width: 18rem;
         margin: -43px 0px 0px -130px;
-        background-color: rgba(0, 0, 0, 0.9);
+        background-color: rgba(0, 0, 0, 1);
         display: flex;
         flex-direction: column;
         align-content: flex-start;
@@ -220,4 +227,51 @@ body {
     .menuToggle input:checked ~ ul {
         transform: none;
     }
+}
+
+.textBanner {
+    color: #fff;
+    font-size: clamp(14px, 1.5vw, 20px);
+    margin: 2rem auto 0px auto;
+    padding: 3em;
+    font-family: 'Changa One', cursive;
+    font-family: 'IBM Plex Sans Thai', sans-serif;
+    font-family: 'Rubik Mono One', sans-serif;
+}
+
+.textBanner h1 {
+    opacity: 0;
+    animation: fade-in-animation 2s ease-in-out forwards;
+}
+
+@keyframes fade-in-animation {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Seting for content section */
+/* 
+@media only screen and (min-width: 811px) {
+
+}
+
+@media only screen and (max-width: 810px) {
+    
+} */
+
+.heroSection-container {
+    display: grid;
+    background: #000;
+    max-width: 900px;
+    margin: 10px auto 0px auto;
+    grid-template-columns: 400px;
+}
+
+.heroSection-container > div {
+    background: #eee;
 }
