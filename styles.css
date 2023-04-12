@@ -1,3 +1,13 @@
+:root {
+    --textColor: #fff;
+    --bgColorBlack: #000;
+    --bgColorRed: #ff0000;
+    --textColorBF: rgba(255, 255, 255, 0.7);
+    --textColorAT: rgba(255, 255, 255, 1);
+    --textSizeforP: clamp(14px, 1.5vw, 20px);
+    --textSizeforH: clamp(30px, 1.5vw, 44px);
+}
+
 *{
     box-sizing: border-box;
     margin: 0;
@@ -6,7 +16,7 @@
 
 body {
     max-width: 100%;
-    background: #000;
+    background: var(--bgColorBlack);
     font-style: normal;
     font-family: SF Pro Text,SF Pro Icons,AOS Icons,Helvetica Neue,Helvetica,Arial,sans-serif;
 }
@@ -24,13 +34,13 @@ body {
 }
 
 .menuToggle a {
-    text-decoration: none;
-    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none; 
+    color: var(--textColorBF);
     transition: 0.3s;
 }
 
 .menuToggle a:hover {
-    color: rgba(255, 255, 255, 1);
+    color: var(--textColorAT);
 }
 
 /* Setting for full screen  */
@@ -232,7 +242,7 @@ body {
 }
 
 .textBanner {
-    color: #fff;
+    color: var(--textColor);
     font-size: clamp(14px, 1.5vw, 20px);
     margin: auto;
     padding: 3em;
@@ -258,33 +268,97 @@ body {
 }
 
 /* Seting for content section */
+
+.heroSection-container {
+    background: var(--bgColorRed);
+}
+
 .heroSection-container > div:nth-child(1) {
     background: url("./resource/herosectionbanner.jpg");
     background-repeat: none;
     background-size: cover;
     background-position: center;
+    box-shadow: 0 0 11px rgba(33,33,33,.8); 
 }
 
 .heroSection-container > div:nth-child(2) {
     display: flex;
     justify-content: center;
-    /* justify-items: center; */
+    align-items: center;
     font-size: clamp(18px, 1.5vw, 24px);
-    color: #fff;
+    color: var(--textColor);
 }
 
+.textHeroSectionContainer > h1 {
+    display: inline-block;
+    position: relative;
+}
+
+.textHeroSectionContainer > h1::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #fff;
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+}
+
+.textHeroSectionContainer > h1:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+.textHeroSectionContainer > h1 > a {
+    color: var(--textColor);
+    text-decoration: none;
+}
+
+.textHeroSectionContainer :nth-child(2) {
+    font-size: var(--textSizeforP);
+    color: var(--textColor);
+    font-family: 'Caveat', cursive;
+    margin-bottom: 30px;
+}
+
+.textHeroSectionContainer p:last-child {
+    font-size: var(--textSizeforP);
+    color: var(--textColor);
+}
 
 /* for monitor screen */
 @media only screen and (min-width: 900px) {
     .heroSection-container {
         display: grid;
-        background: #000;
         max-width: 100vw;
         height: 500px;
         margin: 40px auto;
         grid-template-columns: repeat(2, 1fr);
+        column-gap: 20px;
+    }
+
+    .heroSection-container > div:nth-child(1) {
+        margin: 20px 0px 20px 20px;
+        border-radius: 1px;
+        border: 1px solid var(--bgColorBlack);
     }
     
+    .heroSection-container > div:nth-child(2) {
+        margin: 20px 20px 20px 0px;
+    }
+
+    .textHeroSectionContainer {
+        margin: 20px;
+        text-align: center;
+    }
+
+    .textHeroSectionContainer > h1 {
+        margin-bottom: 30px;
+    }
+  
 }
 
 /* for mobile screen */
@@ -293,22 +367,55 @@ body {
         display: flex;
         flex-direction: column;
         align-items: center;
-        background: #000;
         max-width: 100vw;
         margin: 40px auto;
+        box-sizing: border-box;
+        padding: 40px;
     }
 
     .heroSection-container > div:nth-child(1) {
         width: clamp(300px, 80vw, 600px);
         min-height: 400px;
         padding: 20px;
-        margin: 20px;
+        top: 50px
     }
 
     .heroSection-container > div:nth-child(2) {
         width: clamp(300px, 80vw, 600px);
         min-height: 400px;
         padding: 20px;
-        margin: 20px;
     }
+
+    .textHeroSectionContainer {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .textHeroSectionContainer > h1 {
+        font-size: var(--textSizeforH);
+    }
+}
+
+/* Nutrition Section */
+
+.nutritionSectionContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 100vw;
+    min-height: 500px;
+    background: #f4f4f2;
+    background-image: url("./resource/Nutrition.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: -70px;
+    box-sizing: border-box;
+    margin-bottom: 30px;
+}
+
+.nutritionSectionContainer a {
+    text-decoration: none;
+    float: right;
+    color: var(--bgColorBlack);
+    position: relative;
 }
