@@ -21,6 +21,10 @@ body {
     font-family: SF Pro Text,SF Pro Icons,AOS Icons,Helvetica Neue,Helvetica,Arial,sans-serif;
 }
 
+/* ================================================================
+--------------------> Header and Navbar section  <-----------------
+================================================================ */
+
 .header {
     display: flex;
     flex-direction: column;
@@ -43,7 +47,7 @@ body {
     color: var(--textColorAT);
 }
 
-/* Setting for full screen  */
+/*============== Setting for Desktop screen  ===================*/
 
 @media only screen and (min-width: 900px) {
 
@@ -102,7 +106,7 @@ body {
     }
 }
 
-/* Setting for mobile viewport  */
+/* =============== Setting for mobile viewport ==================*/
 
 @media only screen and (max-width: 899px) {
 
@@ -267,8 +271,9 @@ body {
     }
 }
 
-/* Seting for content section */
-
+/* ================================================================
+--------------------> For Workout Routines Section  <---------------
+================================================================ */
 .heroSection-container {
     background: var(--bgColorRed);
 }
@@ -329,7 +334,7 @@ body {
     color: var(--textColor);
 }
 
-/* for monitor screen */
+/* ============= For Desktop screen =================*/
 @media only screen and (min-width: 900px) {
     .heroSection-container {
         display: grid;
@@ -361,7 +366,7 @@ body {
   
 }
 
-/* for mobile screen */
+/*====================== For mobile screen ======================*/
 @media only screen and (max-width: 899px) {
     .heroSection-container {
         display: flex;
@@ -389,33 +394,289 @@ body {
     .textHeroSectionContainer {
         display: flex;
         flex-direction: column;
+        border-style: solid;
+        padding: 20px;
     }
 
     .textHeroSectionContainer > h1 {
         font-size: var(--textSizeforH);
+        display: inline;
+        box-sizing:content-box;
+    }
+
+    .textHeroSectionContainer :nth-child(2) {
+        margin-top: 30px;
+        margin-bottom: 30px;
+    }
+
+    .textHeroSectionContainer > h1::after {
+        content: '';
+        position: absolute;
+        width: 46%;
+        transform: scaleX(0);
+        height: 2px;
+        bottom: 0;
+        left: 0;
+        background-color: #fff;
+        transform-origin: bottom right;
+        transition: transform 0.25s ease-out;
     }
 }
 
-/* Nutrition Section */
+/* ================================================================
+-----------------------> Nutrition Section <----------------------
+================================================================ */
 
-.nutritionSectionContainer {
+/* ================= For Desktop Screen============= */
+
+@media only screen and (min-width: 900px) {
+
+    .nutritionSectionContainer {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-end;
+        max-width: 100vw;
+        min-height: 500px;
+        background: #f4f4f2;
+        background-image: url("./resource/Nutrition.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: -70px;
+        box-sizing: border-box;
+        margin-bottom: 30px;
+    }
+    
+    .nutritionTextContainer {
+        max-width: 40vw;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 50px;
+        box-sizing: border-box;
+    }
+
+    .nutritionTextContainer h1 a {
+        font-size: var(--textSizeforH);
+        text-decoration: none;
+        color: var(--bgColorBlack);
+        position: relative;
+    }
+
+    .nutritionTextContainer h1 a:hover {
+        font-size: 2rem;
+    }
+
+    .nutritionTextContainer p {
+        font-size: var(--textSizeforP);
+        color: var(--bgColorBlack);
+        margin-top: 25px;
+    }
+}
+
+/* =================  For mobile screen ============= */
+
+@media only screen and (max-width: 899px) {
+    .nutritionSectionContainer {
+        display: flex;
+        align-items: center;
+        max-width: 100vw;
+        min-height: 500px;
+        background-image: url("./resource/Nutrition.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+    } 
+
+    .nutritionTextContainer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
+        margin: 4rem;
+        background: rgba(213, 185, 185, 0.9);
+        border-radius: 10px;
+        box-shadow: 0 0 11px rgba(33,33,33,.8); 
+    }
+
+    .nutritionTextContainer h1 a {
+        text-decoration: none;
+        color: #000;
+    }
+
+    .nutritionTextContainer p {
+        margin-top: 20px;
+    }
+}
+
+/* ================================================================
+-----------------------> For Challenges Section  <-----------------
+================================================================ */
+
+
+.ChallengeContainer {
+    max-width: 100vw;
+    min-height: 100vh;
+    background-image: url("./resource/challenge.jpg");
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.challengeText {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
     max-width: 100vw;
-    min-height: 500px;
-    background: #f4f4f2;
-    background-image: url("./resource/Nutrition.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: -70px;
-    box-sizing: border-box;
+    min-height: 200px;
+    color: var(--textColor);
+    font-family: 'Raleway', sans-serif;
+    background-color: rgba(136, 69, 69, 0.9);
     margin-bottom: 30px;
+    padding: 0 150px;
 }
 
-.nutritionSectionContainer a {
+.challengeText > h1 a {
+    font-size: var(--textSizeforH);
+    text-transform: uppercase;
     text-decoration: none;
-    float: right;
-    color: var(--bgColorBlack);
-    position: relative;
+    color: var(--textColor);
 }
+
+.challengeText > p {
+    text-align: left;
+    margin-top: 15px;
+    font-size: var(--textSizeforP);
+}
+
+.ChallengeStuffContainer {
+    display: flex;
+    flex-direction: row;
+}
+
+.challengeBox {
+    display: flex;
+    color: var(--textColor);
+    text-align: center;
+    margin: 20px;
+    max-width: 300px;
+    min-height: 300px;
+    background-color: rgba(213, 185, 185, 0.9);
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+}
+
+.challengeBox:nth-child(1) {
+    background-image: url("./resource/Physical\ Challenges.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.challengeBox:nth-child(2) {
+    background-image: url("./resource/Nutritional\ Challenges.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.challengeBox:nth-child(3) {
+    background-image: url("./resource/Mental\ Challenges.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+
+.challengeBox h1 {
+    padding-top: 110px;
+    margin: 10px;
+    max-width: 300px;
+    min-height: 300px;
+    background-color: rgba(0, 0, 0, .5);
+    cursor: pointer;
+    transition: 1s;
+}
+
+.challengeBox h1:hover {
+    background-color: rgba(0, 0, 0, 0.9);
+    border-radius: 20px;
+}
+
+/*=================== For Mobile Screen ========================*/
+
+@media only screen and (max-width: 899px) {
+
+    .challengeText {
+        max-width: 100vw;
+        margin: 0;
+        padding: 20px 40px;
+    }
+
+    .ChallengeContainer {
+        overflow: hidden;
+    }
+    
+    .ChallengeStuffContainer {
+        margin-top: 50px;
+        min-width: 300px;
+        min-height: 300px;
+        display: flex;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scroll-snap-type: x mandatory;
+    }
+
+    .challengeBox {
+        height: 100%;
+        flex-shrink: 0;
+        scroll-snap-align: center;
+        
+    }
+
+    .ChallengeStuffContainer::-webkit-scrollbar {
+        display: none;
+    }
+}
+
+/* ================================================================
+-----------------------> Form Section <----------------------
+================================================================ */
+
+/*=================== For Desktop Screen ========================*/
+
+@media only screen and (min-width: 900px) {
+    .ContractContainer {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        max-width: 100vw;
+        min-height: 100vh;
+        background-color: #fff;
+    }
+
+    .ContractBG {
+        min-width: 49vw;
+        min-height: 100vh;
+        background-color: #000;
+        background-image: url("./resource/trainer.jpg");
+        background-size: 300px 300px;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+
+    .ContractForm {
+        min-width: 49vw;
+        min-height: 100vh;
+    }
+}
+
+/*=================== For Mobile Screen ========================*/
+
+/* @media only screen and (max-width: 899px) {
+    
+} */
